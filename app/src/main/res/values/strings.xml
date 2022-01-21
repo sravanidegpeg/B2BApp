@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">B2BApp</string>
+    <string name="logo_name">#LiveCommerce Enabler</string>
+    <string name="signup_logo_heading"># Livecommerce</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="password">Password</string>
+    <string name="termsandconditions">Terms &amp; Conditions</string>
+    <string name="signup">SignUp</string>
+    <string name="alreadyhaveaccount">Do you already know DegPeg?</string>
+    <string name="login">Login</string>
+    <string name="emailtext">Enter Mail</string>
+    <string name="forgotpassword">Forgot Password?</string>
+    <string name="skip">Skip</string>
+    <string name="newtodegpeg">Are you new to Degpeg?</string>
+    <string name="submit">Submit</string>
+    <string name="verificationcode">Enter the 5 Digit Verification Code sent on your Register Mail Id.</string>
+    <string name="enterotp">Enter OTP</string>
+    <string name="verifyotp">Verify OTP</string>
+    <string name="newpassword">New Password</string>
+    <string name="confirmpassword">Confirm Password</string>
+    <string name="done">Done</string>
+    <string name="splash_title_one">Simplified Live Commerce</string>
+    <string name="splash_content_one">Leverage the power of live \n commerce from your phone</string>
+    <string name="splash_title_two">Multi  Streaming</string>
+    <string name="splash_content_two">Reach all your social media followers \n in one live session</string>
+    <string name="splash_title_three">Engage your Customers</string>
+    <string name="splash_content_three">Schedule your live events to alert \n audience in advance</string>
 </resources>
