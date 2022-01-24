@@ -15,12 +15,4 @@ class signupRequest {
     var roles: List<String>? = null
     @SerializedName("status")
     var status: String? = null
-
-
-
-
-
-
-
-
 }

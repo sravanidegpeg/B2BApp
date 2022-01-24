@@ -7,5 +7,4 @@ class loginRequest {
     var password:String?=null
     @SerializedName("email")
     var email:String?=null
-
 }

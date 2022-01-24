@@ -15,4 +15,5 @@
     <color name="textcolor">#000000</color>
     <color name="splash_select_color">#80DDDDDD</color>
     <color name="splash_unselect_color">#DDDDDD</color>
+    <color name="error_message">#626262</color>
 </resources>

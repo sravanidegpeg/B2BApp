@@ -26,7 +26,7 @@ class SignUpPresenter(var mainView: SignupMainView) : ISignUp {
             }
 
             override fun onFailure(call: Call<signupResponse?>, t: Throwable) {
-                mainView.failure(t.message, false)
+                TODO("Not yet implemented")
             }
         })
     }

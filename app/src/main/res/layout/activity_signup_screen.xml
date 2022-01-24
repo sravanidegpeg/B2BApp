@@ -150,6 +150,7 @@
                                     android:layout_height="wrap_content"
                                     android:background="@android:color/transparent"
                                     android:hint="@string/phone"
+                                    android:maxLength="10"
                                     android:inputType="phone"
                                     android:padding="10dp"
                                     android:textColor="@color/edittext_text_color" />
@@ -215,9 +216,29 @@
                         android:textColor="@color/white"
                         android:textSize="17sp" />
 
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/show_error_message"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/error_message_drawable"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:visibility="gone"
+                            android:text="@string/signup"
+                            android:textColor="@color/error_message"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+
 
                 </LinearLayout>
             </RelativeLayout>
+
+
 
             <RelativeLayout
                 android:id="@+id/signup_footer"

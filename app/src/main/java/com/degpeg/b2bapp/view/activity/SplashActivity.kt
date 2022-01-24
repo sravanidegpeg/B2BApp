@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.Window
+import android.view.WindowManager
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
@@ -17,6 +18,8 @@ class SplashActivity : AppCompatActivity(){
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         val splashImagesList = ArrayList<SplashImages>()
         setContentView(R.layout.activity_splash_screen)
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         val viewpager = findViewById<ViewPager>(R.id.view_pager)
         val dotsindicator = findViewById<DotsIndicator>(R.id.dots_indicator)
         val nextButton = findViewById<ImageView>(R.id.next_btn)

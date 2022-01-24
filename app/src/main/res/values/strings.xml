@@ -27,4 +27,17 @@
     <string name="splash_content_two">Reach all your social media followers \n in one live session</string>
     <string name="splash_title_three">Engage your Customers</string>
     <string name="splash_content_three">Schedule your live events to alert \n audience in advance</string>
+    <string name="enter_your_name">Please Enter Your Name.</string>
+    <string name="enter_your_email">Please Enter Your Email.</string>
+    <string name="enter_password">Please Enter Password.</string>
+    <string name="enter_your_phone">Please Enter Your Phone.</string>
+    <string name="otp_success">Registration Success.</string>
+    <string name="otp_failure">Your OTP did\'nt match with our records.</string>
+    <string name="otp_error_message">Please enter otp to continue</string>
+    <string name="valid_email">Please enter valid email</string>
+    <string name="valid_password">"Password is too weak"</string>
+    <string name="login_success">Login Successfully!</string>
+    <string name="login_error">Invalid email or password.</string>
+    <string name="reset_password_email_sent">Reset Password email sent.</string>
+    <string name="reset_password_success_message">Reset Password Success.</string>
 </resources>
