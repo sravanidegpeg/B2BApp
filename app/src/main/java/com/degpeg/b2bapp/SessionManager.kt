@@ -1,30 +1,22 @@
 package com.degpeg.b2bapp
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Log
+import android.preference.PreferenceManager
 
 
-class SessionManager(applicationContext: Context) {
-    var pref: SharedPreferences? = null
-    var editor: SharedPreferences.Editor? = null
-    var _context: Context? = null
-    val KEY_userid = String()
-    private val PREF_NAME = "AndroidHivePref"
-    var PRIVATE_MODE = 0
-    @SuppressLint("CommitPrefEdits")
-    fun SessionManager(context: Context) {
-        this._context = context
-        pref = _context!!.getSharedPreferences(PREF_NAME,PRIVATE_MODE)
-        editor = pref!!.edit()
+class SessionManager(cntx: Context?) {
+    private val prefs: SharedPreferences
+    fun setuserid(userid: String?) {
+        prefs.edit().putString("userid", userid).commit()
     }
 
-    fun createLoginSession(userid: String?) {
-        // Storing userid in pref
-        editor!!.putString(KEY_userid, userid)
-        Log.d("sharedpreferences",KEY_userid)
-        editor!!.commit()
+    fun getuserid(): String? {
+        return prefs.getString("userid", "")
     }
 
+    init {
+        // TODO Auto-generated constructor stub
+        prefs = PreferenceManager.getDefaultSharedPreferences(cntx)
+    }
 }

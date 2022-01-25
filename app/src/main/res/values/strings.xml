@@ -40,4 +40,14 @@
     <string name="login_error">Invalid email or password.</string>
     <string name="reset_password_email_sent">Reset Password email sent.</string>
     <string name="reset_password_success_message">Reset Password Success.</string>
+    <string name="home">Home</string>
+    <string name="sessions">Sessions</string>
+    <string name="channels">Channels</string>
+    <string name="studio">Studio</string>
+    <string name="calender">Calender</string>
+    <string name="chat">Chat</string>
+    <string name="analytics">Analytics</string>
+    <string name="faqs">FAQs</string>
+    <string name="degpeg_title">Degpeg</string>
+    <string name="live">Live</string>
 </resources>

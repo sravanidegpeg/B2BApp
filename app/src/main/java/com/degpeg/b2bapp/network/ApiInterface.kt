@@ -1,10 +1,11 @@
 package com.degpeg.b2bapp.network
 
+import com.degpeg.b2bapp.model.request.ForgotPasswordRequest
 import com.degpeg.b2bapp.model.request.ResetPasswordRequest
-import com.degpeg.b2bapp.model.request.UserDetailsRequest
 import com.degpeg.b2bapp.model.request.loginRequest
 import com.degpeg.b2bapp.model.request.signupRequest
 import com.degpeg.b2bapp.model.response.ResetPasswordResponse
+import com.degpeg.b2bapp.model.response.UserDetailsResponse
 import com.degpeg.b2bapp.model.response.loginResponse
 import com.degpeg.b2bapp.model.response.signupResponse
 import retrofit2.Call
@@ -18,12 +19,12 @@ interface ApiInterface {
     fun postLogin(@Body request: loginRequest?): Call<loginResponse?>?
 
     @POST("users/resetpassword")
-    fun postResetPasswordEmailVerification(@Body request: ResetPasswordRequest?):Call<ResetPasswordResponse?>?
+    fun postResetPasswordEmailVerification(@Body request: ForgotPasswordRequest?):Call<ResetPasswordResponse?>?
 
-    @PATCH("update/id")
-    fun postResetPassword(@Path("id") userId:String,@Body request: ResetPasswordRequest?):Call<ResetPasswordResponse?>?
+    @PATCH("user-credentials/update/{id}")
+    fun postResetPassword(@Path ("id") userid:String,@Body request: ResetPasswordRequest?):Call<ResetPasswordResponse?>?
 
-    @GET("users/id")
-    fun getUserDetails(@Path("id") id:String,@Body userDetailsRequest: UserDetailsRequest)
+    @GET("users")
+    fun getUsers():Call<ArrayList<UserDetailsResponse?>?>?
 }
 

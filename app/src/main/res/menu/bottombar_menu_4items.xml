@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    app:bbn_alwaysShowLabels="true"
+    app:bbn_itemColorActive="@android:color/holo_red_dark"
+    app:bbn_itemColorInactive="@color/black">
+    <item
+        android:id="@+id/bbn_item1"
+        android:icon="@drawable/home_active"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/bbn_item2"
+        android:icon="@drawable/sessions_inactive"
+        android:title="@string/sessions" />
+
+    <item
+        android:id="@+id/bbn_item3"
+        android:icon="@drawable/live_image"
+        android:title="@string/live" />
+    <item
+        android:id="@+id/bbn_item4"
+        android:icon="@drawable/channels_inactive"
+        android:title="@string/channels" />
+    <item
+        android:id="@+id/action5"
+        android:icon="@drawable/studio_inactive"
+        android:title="@string/studio" />
+</menu>

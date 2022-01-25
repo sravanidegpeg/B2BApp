@@ -3,6 +3,7 @@ package com.degpeg.b2bapp.view.activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.view.WindowManager
@@ -11,23 +12,24 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.degpeg.b2bapp.SessionManager
+import com.degpeg.b2bapp.model.request.ForgotPasswordRequest
 import com.degpeg.b2bapp.model.request.ResetPasswordRequest
-import com.degpeg.b2bapp.model.request.loginRequest
-import com.degpeg.b2bapp.presenter.implemention.LoginPresenter
 import com.degpeg.b2bapp.presenter.implemention.ResetPasswordPresenter
 import com.example.b2bapp.R
 import java.util.regex.Pattern
 
 class ForgotPasswordActivity: AppCompatActivity() {
     var presenter = ResetPasswordPresenter()
-    var  request = ResetPasswordRequest()
+    var  request = ForgotPasswordRequest()
+    var resetPasswordRequest = ResetPasswordRequest()
     var create_password_layout:LinearLayout?=null
     var email_layout:LinearLayout?=null
     var email:EditText?=null
     var new_password:EditText?=null
     var confirm_password:EditText?=null
     var error_message :TextView?=null
-    var userId:String?=null
+     var  session: SessionManager? = null
     private val PASSWORD_PATTERN = Pattern.compile(
         "^" +
                 "(?=.*[@#$%^&+=])" +  // at least 1 special character
@@ -38,10 +40,10 @@ class ForgotPasswordActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password_screen)
+        session =  SessionManager(this);
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        userId = intent.getStringExtra("id")
 
         email_layout = findViewById(R.id.email_layout)
         create_password_layout = findViewById(R.id.create_password_layout)
@@ -50,6 +52,8 @@ class ForgotPasswordActivity: AppCompatActivity() {
          new_password = findViewById(R.id.new_password)
          confirm_password = findViewById(R.id.confirm_password)
         val password_error_message = findViewById<TextView>(R.id.password_login_error)
+
+
         findViewById<ImageView>(R.id.back_button).setOnClickListener(View.OnClickListener {
             onBackPressed()
         })
@@ -82,13 +86,12 @@ class ForgotPasswordActivity: AppCompatActivity() {
             error_message?.text = getString(R.string.valid_email)
             false
         } else {
-            error_message?.visibility = View.GONE
+            error_message?.visibility = View.VISIBLE
             request.email = emailInput
             request.client_api_url = ""
             presenter.PostResetPasswordEmailRequest(request)
             Handler().postDelayed({
                 error_message?.text = getString(R.string.reset_password_email_sent)
-                error_message?.visibility = View.VISIBLE
                 create_password_layout?.visibility = View.VISIBLE
                 email_layout?.visibility = View.GONE
 
@@ -114,9 +117,10 @@ class ForgotPasswordActivity: AppCompatActivity() {
             error.text = getString(R.string.valid_password)
             false
         } else {
-            request.userId =userId
-            request.password = newPasswordInput
-            userId?.let { presenter.PostResetPassword(it,request) }
+            resetPasswordRequest.userId =session?.getuserid()
+            Log.e("session userid",session?.getuserid().toString())
+            resetPasswordRequest.password = newPasswordInput
+            presenter.PostResetPassword(session?.getuserid().toString(),resetPasswordRequest)
             Handler().postDelayed({
                 error.visibility = View.VISIBLE
                 error.text = getString(R.string.reset_password_success_message)
@@ -125,8 +129,7 @@ class ForgotPasswordActivity: AppCompatActivity() {
                 val i = Intent(this, LoginActivity::class.java)
                 finish()
                 startActivity(i)
-
-            }, 3000)
+                                  }, 3000)
 
             true
         }

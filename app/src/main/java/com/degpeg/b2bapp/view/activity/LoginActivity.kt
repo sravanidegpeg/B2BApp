@@ -11,18 +11,16 @@ import com.example.b2bapp.R
 import java.util.regex.Pattern
 import android.util.Log
 import android.view.WindowManager
+import com.degpeg.b2bapp.SessionManager
 import com.degpeg.b2bapp.model.request.loginRequest
+import com.degpeg.b2bapp.model.response.UserDetailsResponse
 import com.degpeg.b2bapp.model.response.loginResponse
 import com.degpeg.b2bapp.presenter.implemention.LoginPresenter
 import com.degpeg.b2bapp.presenter.interfaces.LoginMainView
 
 
-
-
-
 @Suppress("DEPRECATION")
 class LoginActivity: AppCompatActivity(),LoginMainView {
-    var userId: String? = null
     private val PASSWORD_PATTERN = Pattern.compile(
         "^" +
                 "(?=.*[@#$%^&+=])" +  // at least 1 special character
@@ -36,23 +34,25 @@ class LoginActivity: AppCompatActivity(),LoginMainView {
     private val PREF_NAME = "B2B"
     var email:EditText?=null
     var password:EditText?=null
+    var userId:String?=null
+     var session: SessionManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_screen)
+        session =  SessionManager(this)
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        userId = intent.getStringExtra("userid")
-
-        Log.d("id", userId.toString())
          email = findViewById<EditText>(R.id.email)
          password = findViewById<EditText>(R.id.password)
         login_error_message = findViewById(R.id.show_login_error_message)
 
+        presenter.getUsers()
+        getUsers(userId)
+
         findViewById<TextView>(R.id.forgot_password_btn).setOnClickListener(View.OnClickListener {
             val i = Intent(this, ForgotPasswordActivity::class.java)
-            i.putExtra("id",userId)
             startActivity(i)
         })
         findViewById<TextView>(R.id.signup_button).setOnClickListener(View.OnClickListener {
@@ -69,9 +69,14 @@ class LoginActivity: AppCompatActivity(),LoginMainView {
         findViewById<TextView>(R.id.login_button).setOnClickListener(View.OnClickListener {
             when {
                 validateEmail() && validatePassword() -> {
+                    login_error_message!!.visibility = View.GONE
+                    request.email =email?.text.toString()
+                    request.password = password?.text.toString()
+                    presenter.postLogin(request)
                 }
             }
         })
+
 
 
     }
@@ -90,9 +95,6 @@ class LoginActivity: AppCompatActivity(),LoginMainView {
             false
         } else {
             login_error_message!!.visibility = View.GONE
-            request.email =email?.text.toString()
-            request.password = password?.text.toString()
-            presenter.postLogin(request)
             true
         }
     }
@@ -111,9 +113,6 @@ class LoginActivity: AppCompatActivity(),LoginMainView {
             false
         } else {
             login_error_message!!.visibility = View.GONE
-            request.email =email?.text.toString()
-            request.password = password?.text.toString()
-            presenter.postLogin(request)
             true
         }
     }
@@ -131,5 +130,14 @@ class LoginActivity: AppCompatActivity(),LoginMainView {
         login_error_message!!.visibility= View.VISIBLE
         login_error_message!!.text = getString(R.string.login_error)
     }
+
+    override fun getUsers(userId: String?) {
+        this.userId = userId
+        Log.e("login user id",userId.toString())
+        session?.setuserid(userId);
+        Log.e("session userid", session?.getuserid()!!)
+
+    }
+
 
 }
