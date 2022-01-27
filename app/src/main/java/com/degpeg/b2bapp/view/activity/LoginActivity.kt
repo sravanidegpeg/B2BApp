@@ -2,6 +2,7 @@ package com.degpeg.b2bapp.view.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.util.Patterns
 import android.view.View
 import android.widget.EditText
@@ -11,6 +12,7 @@ import com.example.b2bapp.R
 import java.util.regex.Pattern
 import android.util.Log
 import android.view.WindowManager
+import android.widget.ImageView
 import com.degpeg.b2bapp.SessionManager
 import com.degpeg.b2bapp.model.request.loginRequest
 import com.degpeg.b2bapp.model.response.UserDetailsResponse
@@ -63,6 +65,14 @@ class LoginActivity: AppCompatActivity(),LoginMainView {
         findViewById<TextView>(R.id.skip_btn).setOnClickListener(View.OnClickListener {
             val i = Intent(this, MainActivity::class.java)
             startActivity(i)
+        })
+
+        findViewById<ImageView>(R.id.show_pass_btn).setOnClickListener(View.OnClickListener {
+            if (password?.inputType!! == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
+                password?.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            }else{
+                password?.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD;
+            }
         })
 
 

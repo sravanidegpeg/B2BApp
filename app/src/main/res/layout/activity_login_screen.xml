@@ -83,7 +83,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@android:color/transparent"
                                 android:hint="@string/password"
-                                android:inputType="textVisiblePassword"
+                                android:inputType="textPassword"
                                 android:padding="10dp"
                                 android:textColor="@color/edittext_text_color" />
 

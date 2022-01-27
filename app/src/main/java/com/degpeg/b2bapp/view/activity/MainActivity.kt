@@ -16,6 +16,7 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.widget.Toolbar
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.degpeg.b2bapp.view.adapter.MenuAdapter
+import com.degpeg.b2bapp.view.adapter.TabsAdapter
 import com.example.b2bapp.R
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation
 import java.lang.Exception
@@ -24,7 +25,7 @@ import java.lang.Exception
 class MainActivity : AppCompatActivity(), BottomNavigation.OnMenuItemSelectionListener{
     private var mBottomNavigation: BottomNavigation? = null
     private var mViewPager: ViewPager? = null
-//    private var tabsAdapter: TabsAdapter? = null
+    private var tabsAdapter: TabsAdapter? = null
     private var mDrawerLayout: DrawerLayout? = null
     var menu_btn: ImageView? = null
     var page_title: TextView? = null
@@ -60,12 +61,7 @@ class MainActivity : AppCompatActivity(), BottomNavigation.OnMenuItemSelectionLi
         supportActionBar!!.setCustomView(v, layoutParams)
         val parent: Toolbar = v.parent as Toolbar
         parent.setContentInsetsAbsolute(0, 0)
-//        val anim = ObjectAnimator.ofInt(mprogressBar, "progress", 0, 1440)
-//        anim.repeatCount = ObjectAnimator.INFINITE
-//        anim.repeatMode = ObjectAnimator.RESTART
-//        anim.duration = 60000
-//        anim.interpolator = DecelerateInterpolator()
-//        anim.start()
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,13 +69,13 @@ class MainActivity : AppCompatActivity(), BottomNavigation.OnMenuItemSelectionLi
         setContentView(R.layout.activity_main)
         mDrawerLayout = findViewById<View>(R.id.drawer_layout) as DrawerLayout
         mBottomNavigation = findViewById<View>(R.id.BottomNavigation) as BottomNavigation
-        //mBottomNavigation.setOnMenuItemClickListener(this)
-//        tabsAdapter = TabsAdapter(supportFragmentManager)
+//        mBottomNavigation.setOnMenuItemClickListener(this)
+        tabsAdapter = TabsAdapter(supportFragmentManager)
         mViewPager = findViewById<View>(R.id.viewPager) as ViewPager
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
-//        mViewPager!!.adapter = tabsAdapter
+        mViewPager!!.adapter = tabsAdapter
         mViewPager!!.addOnPageChangeListener(object : OnPageChangeListener {
             override fun onPageScrolled(
                 position: Int,

@@ -4,10 +4,7 @@ import com.degpeg.b2bapp.model.request.ForgotPasswordRequest
 import com.degpeg.b2bapp.model.request.ResetPasswordRequest
 import com.degpeg.b2bapp.model.request.loginRequest
 import com.degpeg.b2bapp.model.request.signupRequest
-import com.degpeg.b2bapp.model.response.ResetPasswordResponse
-import com.degpeg.b2bapp.model.response.UserDetailsResponse
-import com.degpeg.b2bapp.model.response.loginResponse
-import com.degpeg.b2bapp.model.response.signupResponse
+import com.degpeg.b2bapp.model.response.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -26,5 +23,8 @@ interface ApiInterface {
 
     @GET("users")
     fun getUsers():Call<ArrayList<UserDetailsResponse?>?>?
+
+    @GET("channel-templates")
+    fun getChannels():Call<ArrayList<ChannelsResponse?>?>?
 }
 

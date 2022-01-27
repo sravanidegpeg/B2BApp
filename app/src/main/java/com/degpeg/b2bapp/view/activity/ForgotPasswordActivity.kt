@@ -3,6 +3,7 @@ package com.degpeg.b2bapp.view.activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.text.InputType
 import android.util.Log
 import android.util.Patterns
 import android.view.View
@@ -70,6 +71,22 @@ class ForgotPasswordActivity: AppCompatActivity() {
                 validatePassword(password_error_message!!) ->{}
             }
 
+        })
+
+        findViewById<ImageView>(R.id.show_new_password_btn).setOnClickListener(View.OnClickListener {
+            if (new_password?.inputType!! == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
+                new_password?.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            }else{
+                new_password?.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD;
+            }
+        })
+
+        findViewById<ImageView>(R.id.show_confirm_pass_btn).setOnClickListener(View.OnClickListener {
+            if (confirm_password?.inputType!! == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
+                confirm_password?.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            }else{
+                confirm_password?.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD;
+            }
         })
     }
 

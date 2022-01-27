@@ -50,4 +50,10 @@
     <string name="faqs">FAQs</string>
     <string name="degpeg_title">Degpeg</string>
     <string name="live">Live</string>
+    <string name="upcommingsessions">Up Comming Sessions</string>
+    <string name="viewall">View all</string>
+    <string name="selectedchannels">Selected Channels</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="golive">GO LIVE</string>
+    <string name="facebook">Facebook</string>
 </resources>

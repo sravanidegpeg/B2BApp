@@ -1,6 +1,5 @@
 package com.degpeg.b2bapp.presenter.implemention
 
-import android.content.Context
 import android.util.Log
 import com.degpeg.b2bapp.SessionManager
 import com.degpeg.b2bapp.helpers.ApiClient
@@ -10,15 +9,10 @@ import com.degpeg.b2bapp.model.response.loginResponse
 import com.degpeg.b2bapp.network.ApiInterface
 import com.degpeg.b2bapp.presenter.interfaces.ILogin
 import com.degpeg.b2bapp.presenter.interfaces.LoginMainView
-import com.degpeg.b2bapp.presenter.interfaces.UserMainView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import com.google.gson.Gson
-import android.content.SharedPreferences
-
-
-
 
 
 class LoginPresenter(var mainView: LoginMainView) : ILogin {
