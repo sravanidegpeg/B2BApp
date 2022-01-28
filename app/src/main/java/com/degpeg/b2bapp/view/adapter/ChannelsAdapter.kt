@@ -52,9 +52,8 @@ class ChannelsAdapter(private val channelsResponse: ArrayList<ChannelsResponse?>
         Log.e("name",channelsListResponse?.logo.toString())
         Picasso.get().isLoggingEnabled = true
         val image:String = channelsListResponse?.logo.toString()
-        Picasso.get().load(Uri.parse(image)).resize(200,250)
+        Picasso.get().load(image).placeholder(R.drawable.facebook)
                 .into(holder.channelImage)
-
         holder.channelTitle?.text = channelsListResponse?.name
 
     }

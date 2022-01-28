@@ -22,7 +22,7 @@ import it.sephiroth.android.library.bottomnavigation.BottomNavigation
 import java.lang.Exception
 
 
-class MainActivity : AppCompatActivity(), BottomNavigation.OnMenuItemSelectionListener{
+class MainActivity : AppCompatActivity(), BottomNavigation.OnMenuItemSelectionListener {
     private var mBottomNavigation: BottomNavigation? = null
     private var mViewPager: ViewPager? = null
     private var tabsAdapter: TabsAdapter? = null
@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity(), BottomNavigation.OnMenuItemSelectionLi
         setContentView(R.layout.activity_main)
         mDrawerLayout = findViewById<View>(R.id.drawer_layout) as DrawerLayout
         mBottomNavigation = findViewById<View>(R.id.BottomNavigation) as BottomNavigation
-//        mBottomNavigation.setOnMenuItemClickListener(this)
+        mBottomNavigation!!.setOnCreateContextMenuListener(this)
         tabsAdapter = TabsAdapter(supportFragmentManager)
         mViewPager = findViewById<View>(R.id.viewPager) as ViewPager
         window.setFlags(
@@ -204,7 +204,7 @@ class MainActivity : AppCompatActivity(), BottomNavigation.OnMenuItemSelectionLi
             }
             2 -> {
                 page_title!!.visibility = View.VISIBLE
-                page_title!!.text = getString(R.string.degpeg_title)
+                page_title!!.text = getString(R.string.sessions)
             }
             3 -> {
                 page_title!!.visibility = View.VISIBLE

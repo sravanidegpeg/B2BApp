@@ -26,6 +26,7 @@
         <activity android:name="com.degpeg.b2bapp.view.activity.ForgotPasswordActivity"/>
         <activity android:name="com.degpeg.b2bapp.view.activity.MainActivity"/>
         <activity android:name="com.degpeg.b2bapp.view.activity.OtpActivity"/>
+        <activity android:name="com.degpeg.b2bapp.view.activity.AddSessionActivity"/>
     </application>
 
 </manifest>
