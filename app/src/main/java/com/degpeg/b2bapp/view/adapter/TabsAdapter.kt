@@ -5,12 +5,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.degpeg.b2bapp.view.activity.HomeFragment
+import com.degpeg.b2bapp.view.activity.SessionsFragment
 
 
 class TabsAdapter(fm: FragmentManager?) : FragmentStatePagerAdapter(fm!!) {
     var homeFragment: HomeFragment? = null
+    var sessionsFragment:SessionsFragment?=null
     override fun getCount(): Int {
-        return 1
+        return 2
     }
 
     override fun getItem(position: Int): Fragment {
@@ -18,7 +20,10 @@ class TabsAdapter(fm: FragmentManager?) : FragmentStatePagerAdapter(fm!!) {
         if (position == 0) {
             homeFragment = HomeFragment().newInstance(position)
             return homeFragment!!
+        }else if (position ==1){
+            sessionsFragment = SessionsFragment().newInstance(position)
+            return sessionsFragment!!
         }
-        return homeFragment!!
+        return sessionsFragment!!
     }
 }

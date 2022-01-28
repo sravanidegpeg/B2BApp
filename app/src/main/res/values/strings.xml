@@ -56,4 +56,20 @@
     <string name="upcoming">Upcoming</string>
     <string name="golive">GO LIVE</string>
     <string name="facebook">Facebook</string>
+    <string name="createsessions">Create Sessions</string>
+    <string name="sessiontext">All info will be used as the preset in the next step</string>
+    <string name="sessionname">Session Name*</string>
+    <string name="addyoursessionname">Add Your Session Name</string>
+    <string name="description">Description</string>
+    <string name="addastreamdescription">Add a stream Discription (Optional)</string>
+    <string name="dateandtime">Date &amp; Time*</string>
+    <string name="selectthedateandtime">Select the Date &amp; Time</string>
+    <string name="sessiontype">Session Type*</string>
+    <string name="choosesessiontype">Choose session type</string>
+    <string name="thumbnail">Thumbnail</string>
+    <string name="uploadimage">Upload Image</string>
+    <string name="next">Next</string>
+    <string name="addsession">Add Session</string>
+    <string name="all">All</string>
+    <string name="completed">Completed</string>
 </resources>

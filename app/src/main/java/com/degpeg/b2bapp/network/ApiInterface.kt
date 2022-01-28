@@ -26,5 +26,9 @@ interface ApiInterface {
 
     @GET("channel-templates")
     fun getChannels():Call<ArrayList<ChannelsResponse?>?>?
+
+    @GET("influencers")
+    fun getInfluencers():Call<ArrayList<InfluencersResponse?>?>?
+
 }
 
